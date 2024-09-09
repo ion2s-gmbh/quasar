@@ -122,7 +122,8 @@ export default createComponent({
     },
 
     onNewValue: Function,
-    onFilter: Function
+    onFilter: Function,
+    optionDataId: [ String, Function ]
   },
 
   emits: [
@@ -336,6 +337,9 @@ export default createComponent({
           onClick: () => { toggleOption(opt) }
         }
 
+        if (props.optionDataId) {
+          itemProps[ 'data-id' ] = typeof props.optionDataId === 'string' ? `${ props.optionDataId }-${ i }` : props.optionDataId(opt)
+        }
         if (disable !== true) {
           isOptionSelected(opt) === true && (itemProps.active = true)
           optionIndex.value === index && (itemProps.focused = true)
