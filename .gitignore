@@ -9,3 +9,6 @@ package-lock.json
 ui/.vscode/
 
 node_modules/
+yarn.lock
+
+.pnpm-store
